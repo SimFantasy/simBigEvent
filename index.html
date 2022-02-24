@@ -1,17 +1,84 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Title</title>
-<link rel="stylesheet" href="assets/lib/layui/css/layui.min.css" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/index.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>系统主页</title>
+    <link rel="stylesheet" href="assets/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="assets/fonts/remixicon.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
 </head>
 
 <body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-hide-xs">
+                <img src="assets/images/logo-white.svg" height="32" />
+            </div>
 
-<script src="assets/lib/jquery-3.6.0.min.js"></script>
-<script src="assets/js/index.js"></script>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+                    <a href="javascript:;">
+                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"
+                            class="layui-nav-img" />
+                        <span class="text-avatar"></span>
+                        <span id="userinfo"></span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" target="fm">基本资料</a></dd>
+                        <dd><a href="javascript:;" target="fm">更换头像</a></dd>
+                        <dd><a href="javascript:;" target="fm">修改密码</a></dd>
+                        <dd><a href="javascript:;" target="fm" id="user-logout">注销</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-cyan">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree lay-shrink" lay-filter="side-nav" lay-shrink="all">
+                    <li class="layui-nav-item layui-this">
+                        <a href="javascript:;" target="fm"><i class="ri-home-3-line"></i> 概览</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;" target="fm"><i class="ri-file-text-line"></i> 文章管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;" target="fm"><i class="ri-arrow-drop-right-line"></i> 文章类别</a>
+                            </dd>
+                            <dd><a href="javascript:;" target="fm"><i class="ri-arrow-drop-right-line"></i> 文章管理</a>
+                            </dd>
+                            <dd><a href="javascript:;" target="fm"><i class="ri-arrow-drop-right-line"></i> 发表文章</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><i class="ri-user-settings-line"></i> 个人中心</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;" target="fm"><i class="ri-arrow-drop-right-line"></i> 基本资料</a>
+                            </dd>
+                            <dd><a href="javascript:;" target="fm"><i class="ri-arrow-drop-right-line"></i> 更换头像</a>
+                            </dd>
+                            <dd><a href="javascript:;" target="fm"><i class="ri-arrow-drop-right-line"></i> 修改密码</a>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <iframe src="/home/dashboard.html" frameborder="0" name="fm"></iframe>
+        </div>
+    </div>
+
+
+    <script src="assets/lib/jquery-3.6.0.min.js"></script>
+    <script src="assets/lib/layui/layui.all.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
+
 </html>
