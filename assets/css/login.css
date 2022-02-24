@@ -1,0 +1,12 @@
+body { background:url(/assets/images/login-bg.jpg) no-repeat center top; background-size: cover;}
+
+.logo { clear:both; margin:160px auto 0 auto; height:48px; background:url(/assets/images/logo-white.svg) no-repeat center;}
+
+.layui-form-item { position: relative;}
+.layui-form-item i { position: absolute; top:8px; left:10px; color:#999;}
+.layui-form-item .layui-input { padding-left:30px;}
+
+.form-link { color:#1E9FFF; text-decoration:none;}
+.form-link:hover { color:#1E9FFF; text-decoration:underline;;}
+
+.reg-group { display:none;}

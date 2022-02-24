@@ -1,17 +1,92 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Title</title>
-<link rel="stylesheet" href="assets/lib/layui/css/layui.min.css" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/login.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="assets/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="assets/fonts/remixicon.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
 </head>
 
 <body>
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md12">
+                <div class="logo mb-5"></div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md4  layui-col-md-offset4">
+                <div class="layui-card">
+                    <div class="layui-card-header">Front Admin Login</div>
+                    <div class="layui-card-body p-4 pb-0">
+                        <!-- login-group -->
+                        <form class="layui-form login-group">
+                            <div class="layui-form-item">
+                                <i class="ri-user-3-line"></i>
+                                <input type="text" name="username" autocomplete="off" class="layui-input"
+                                    placeholder="请输入用户名" lay-verify="required|uname" />
+                            </div>
 
-<script src="assets/lib/jquery-3.6.0.min.js"></script>
-<script src="assets/js/login.js"></script>
+                            <div class="layui-form-item">
+                                <i class="ri-shield-keyhole-line"></i>
+                                <input type="password" name="password" autocomplete="off" class="layui-input"
+                                    placeholder="请输入密码" lay-verify="required|pwd" />
+                            </div>
+
+                            <div class="layui-form-item">
+                                <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit>登录</button>
+                            </div>
+
+                            <div class="layui-form-item text-center pb-2">
+                                <a href="javascript:;" id="link-reg" class="form-link">去注册</a>
+                            </div>
+                        </form>
+                        <!-- /login-group -->
+
+                        <!-- reg-group -->
+                        <form class="layui-form reg-group">
+                            <div class="layui-form-item">
+                                <i class="ri-user-3-line"></i>
+                                <input type="text" name="username" autocomplete="off" class="layui-input"
+                                    placeholder="请输入用户名" lay-verify="required|uname" />
+                            </div>
+
+                            <div class="layui-form-item">
+                                <i class="ri-shield-keyhole-line"></i>
+                                <input type="password" name="password" autocomplete="off" class="layui-input"
+                                    placeholder="请输入密码" lay-verify="required|pwd" />
+                            </div>
+
+                            <div class="layui-form-item">
+                                <i class="ri-shield-keyhole-line"></i>
+                                <input type="password" name="repassword" autocomplete="off" class="layui-input"
+                                    placeholder="请确认密码" lay-verify="required|pwd|repwd" />
+                            </div>
+
+                            <div class="layui-form-item">
+                                <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit>注册</button>
+                            </div>
+
+                            <div class="layui-form-item text-center pb-2">
+                                <a href="javascript:;" id="link-login" class="form-link">去登录</a>
+                            </div>
+
+                        </form>
+                        <!-- /reg-group -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/lib/jquery-3.6.0.min.js"></script>
+    <script src="assets/lib/layui/layui.all.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
+
 </html>
