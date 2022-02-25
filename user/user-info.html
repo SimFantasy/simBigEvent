@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>用户信息</title>
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/assets/fonts/remixicon.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/user.css" />
 </head>
 
 <body class="body-bg m-3">
@@ -19,11 +17,12 @@
                 <div class="layui-card">
                     <div class="layui-card-header">修改用户信息</div>
                     <div class="layui-card-body p-3 layui-clear">
-                        <form class="layui-form layui-col-md4">
+                        <form class="layui-form layui-col-md4" lay-filter="formUserInfo">
+                            <input type="hidden" name="id" />
                             <div class="layui-form-item">
                                 <label class="layui-form-label">用户名称</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="username" class="layui-input" value="bbs123"
+                                    <input type="text" name="username" class="layui-input" value=""
                                         disabled="disabled" />
                                 </div>
                             </div>
@@ -31,21 +30,23 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label">用户昵称</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="username" class="layui-input" placeholder="请输入用户昵称" />
+                                    <input type="text" name="nickname" class="layui-input" placeholder="请输入用户昵称"
+                                        lay-verify="required|nickname" />
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
                                 <label class="layui-form-label">用户邮箱</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="username" class="layui-input" placeholder="请输入用户邮箱" />
+                                    <input type="text" name="email" autocomplete="off" class="layui-input"
+                                        placeholder="请输入用户邮箱" lay-verify="required|email" />
                                 </div>
                             </div>
 
                             <div class="layui-form-item">
                                 <div class="layui-input-block">
-                                    <button class="layui-btn layui-btn-normal">提交修改</button>
-                                    <button class="layui-btn layui-btn-primary">重置</button>
+                                    <button class="layui-btn layui-btn-normal" lay-submit>提交修改</button>
+                                    <button class="layui-btn layui-btn-primary" id="resetBtn">重置</button>
                                 </div>
                             </div>
 
@@ -59,7 +60,7 @@
     <script src="/assets/lib/jquery-3.6.0.min.js"></script>
     <script src="/assets/lib/layui/layui.all.js"></script>
     <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/user.js"></script>
+    <script src="/assets/js/user/user-info.js"></script>
 </body>
 
 </html>

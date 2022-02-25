@@ -3,7 +3,7 @@
 .layui-nav-itemed>.layui-nav-child { background-color:rgba(0, 0, 0, .2) !important;}
 .layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this>a, .layui-nav-tree .layui-this>a:hover { background-color:#657E99;}
 .layui-nav-tree .layui-nav-bar { background-color: #94B1CC;}
-
+.layui-layout-admin .layui-body { bottom:0;}
 .layui-nav-item i { display:inline-block; font-size:14px;}
 
 .layui-body { overflow:hidden;}

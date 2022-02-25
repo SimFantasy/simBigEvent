@@ -1,0 +1,7 @@
+/* cropper */
+.cropper-image-group { float:left; margin-right:16px; width:240px; height:240px; border-radius:4px; overflow:hidden;}
+.cropper-preview-group { float:left; width:64px; height:240px;}
+.preview-item { clear:both; margin-bottom:48px; height:96px; text-align:center; font-size:14px; color:#777;}
+.img-preview { margin:0 auto; border-radius:90px; background-color:#f4f4f4; overflow:hidden;}
+.img-preview.w64 { width:64px; height:64px;}
+.img-preview.w32 { width:32px; height:32px;}
