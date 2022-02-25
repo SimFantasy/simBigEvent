@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章分类</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/assets/fonts/remixicon.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/article.css" />
+</head>
+
+<body class="body-bg m-3">
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <div class="layui-col-md12">
+
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        文章分类管理
+                        <button class="layui-btn layui-btn-sm layui-btn-normal float-end mt-2">添加分类</button>
+                    </div>
+                    <div class="layui-card-body p-3 layui-clear">
+
+                        <table class="layui-table" lay-skin="line">
+                            <thead>
+                                <tr>
+                                    <th width="60">ID</th>
+                                    <th>分类名称</th>
+                                    <th>分类别名</th>
+                                    <th width="160">操作</th>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>最新</td>
+                                    <td>Latest</td>
+                                    <td>
+                                        <button class="layui-btn layui-btn-sm layui-btn-danger">删除</button>
+                                        <button class="layui-btn layui-btn-sm layui-btn-normal">修改</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </tr>
+                            </thead>
+                        </table>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/lib/jquery-3.6.0.min.js"></script>
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/article.js"></script>
+</body>
+
+</html>

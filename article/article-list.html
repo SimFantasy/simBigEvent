@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章管理</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/assets/fonts/remixicon.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/article.css" />
+</head>
+
+<body class="body-bg m-3">
+    <div class="layui-fluid">
+        <div class="layui-row">
+            <div class="layui-col-md12">
+
+                <div class="layui-card">
+                    <div class="layui-card-header">文章管理</div>
+                    <div class="layui-card-body p-3 layui-clear">
+
+                        <form class="layui-form">
+                            <div class="layui-form-item layui-inline mr-2 mb-1">
+                                <select name="category" id="">
+                                    <option value="010">请选择分类</option>
+                                    <option value="020">分类2</option>
+                                    <option value="030">分类3</option>
+                                </select>
+                            </div>
+
+                            <div class="layui-form-item layui-inline mr-2 mb-1">
+                                <select name="status" id="">
+                                    <option value="010">请选择状态</option>
+                                    <option value="010">已发布</option>
+                                    <option value="020">草稿</option>
+                                </select>
+                            </div>
+
+                            <div class="layui-form-item layui-inline mb-1">
+                                <button class="layui-btn">查询</button>
+                                <button class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </form>
+
+                        <hr />
+
+                        <table class="layui-table" lay-skin="line">
+                            <thead>
+                                <tr>
+                                    <th>文章标题</th>
+                                    <th width="160">分类</th>
+                                    <th width="160">发布时间</th>
+                                    <th width="80">状态</th>
+                                    <th width="160">操作</th>
+                            <tbody>
+                                <tr>
+                                    <td>文章标题</td>
+                                    <td>最新</td>
+                                    <td>2020-02-25 11:17:44</td>
+                                    <td>已发布</td>
+                                    <td>
+                                        <button class="layui-btn layui-btn-sm layui-btn-danger">删除</button>
+                                        <button class="layui-btn layui-btn-sm layui-btn-normal">修改</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/lib/jquery-3.6.0.min.js"></script>
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/article.js"></script>
+</body>
+
+</html>
