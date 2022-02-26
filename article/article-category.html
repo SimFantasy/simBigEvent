@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文章分类</title>
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/assets/fonts/remixicon.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/article.css" />
 </head>
 
 <body class="body-bg m-3">
@@ -20,17 +18,24 @@
                 <div class="layui-card">
                     <div class="layui-card-header">
                         文章分类管理
-                        <button class="layui-btn layui-btn-sm layui-btn-normal float-end mt-2">添加分类</button>
+                        <button class="layui-btn layui-btn-sm layui-btn-normal float-end mt-2"
+                            id="addCategoryBtn">添加分类</button>
                     </div>
                     <div class="layui-card-body p-3 layui-clear">
 
                         <table class="layui-table" lay-skin="line">
+                            <colgroup>
+                                <col width="160" />
+                                <col>
+                                <col>
+                                <col width="160">
+                            </colgroup>
                             <thead>
                                 <tr>
-                                    <th width="60">ID</th>
+                                    <th>ID</th>
                                     <th>分类名称</th>
                                     <th>分类别名</th>
-                                    <th width="160">操作</th>
+                                    <th>操作</th>
                             <tbody>
                                 <tr>
                                     <td>1</td>
@@ -54,10 +59,79 @@
         </div>
     </div>
 
+    <!-- add-category -->
+    <script type="text/html" id="addCategory">
+    <form class="layui-form m-3" id="addCategoryForm">
+        <div class="layui-form-item">
+            <label for="" class="layui-form-label">分类名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" autocomplete="off" class="layui-input" placeholder="请输入分类名称"
+                    lay-verify="required" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="" class="layui-form-label">分类别名</label>
+            <div class="layui-input-block">
+                <input type="text" name="alias" autocomplete="off" class="layui-input" placeholder="请输入分类别名"
+                    lay-verify="required" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-primary">重置</button>
+                <button class="layui-btn layui-btn-normal" id="sendCategoryBtn">添加</button>
+            </div>
+        </div>
+    </form>
+    </script>
+    <!-- /add-category -->
+
+    <!-- edit-category -->
+    <script type="text/html" id="editCategory">
+    <form class="layui-form m-3" id="editCategoryForm" lay-filter="editCategoryForm">
+        <input type="hidden" name="Id" />
+        <div class="layui-form-item">
+            <label for="" class="layui-form-label">分类名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" autocomplete="off" class="layui-input" placeholder="请输入分类名称"
+                    lay-verify="required" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="" class="layui-form-label">分类别名</label>
+            <div class="layui-input-block">
+                <input type="text" name="alias" autocomplete="off" class="layui-input" placeholder="请输入分类别名"
+                    lay-verify="required" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" id="editCategoryBtn">修改</button>
+            </div>
+        </div>
+    </form>
+    </script>
+    <!-- /edit-category -->
+
+    <script type="text/html" id="tpl-category">
+        {{each data}}
+        <tr>
+            <td>{{$value.Id}}</td>
+            <td>{{$value.name}}</td>
+            <td>{{$value.alias}}</td>
+            <td>
+                <button class="layui-btn layui-btn-sm layui-btn-danger del-category">删除</button>
+                <button class="layui-btn layui-btn-sm layui-btn-normal edit-category" data-id="{{$value.Id}}">修改</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
     <script src="/assets/lib/jquery-3.6.0.min.js"></script>
     <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/lib/template-web.js"></script>
     <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/article.js"></script>
+    <script src="/assets/js/article/article-category.js"></script>
 </body>
 
 </html>
