@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/assets/fonts/remixicon.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/article.css" />
 </head>
 
 <body class="body-bg m-3">
@@ -17,27 +18,33 @@
             <div class="layui-col-md12">
 
                 <div class="layui-card">
-                    <div class="layui-card-header">文章管理</div>
-                    <div class="layui-card-body p-3 layui-clear">
+                    <div class="layui-card-header">
+                        文章管理
+                    </div>
+                    <div class="layui-card-body layui-clear">
+                        <div class="pb-0 layui-clear">
+                            <form class="layui-form float-start" id="search-form">
+                                <div class="layui-form-item layui-inline mr-2 mb-1">
+                                    <select name="cate-id"></select>
+                                </div>
 
-                        <form class="layui-form" id="search-form">
-                            <div class="layui-form-item layui-inline mr-2 mb-1">
-                                <select name="cate-id"></select>
-                            </div>
+                                <div class="layui-form-item layui-inline mr-2 mb-1">
+                                    <select name="state_id">
+                                        <option value="">请选择状态</option>
+                                        <option value="已发布">已发布</option>
+                                        <option value="草稿">草稿</option>
+                                    </select>
+                                </div>
 
-                            <div class="layui-form-item layui-inline mr-2 mb-1">
-                                <select name="state_id">
-                                    <option value="">请选择状态</option>
-                                    <option value="已发布">已发布</option>
-                                    <option value="草稿">草稿</option>
-                                </select>
-                            </div>
+                                <div class="layui-form-item layui-inline mb-1">
+                                    <button class="layui-btn">查询</button>
+                                    <button class="layui-btn layui-btn-primary">重置</button>
+                                </div>
+                            </form>
 
-                            <div class="layui-form-item layui-inline mb-1">
-                                <button class="layui-btn">查询</button>
-                                <button class="layui-btn layui-btn-primary">重置</button>
-                            </div>
-                        </form>
+                            <button class="layui-btn layui-btn-normal float-end add-article">发布文章</button>
+
+                        </div>
 
                         <hr />
 
@@ -87,10 +94,52 @@
         {{/each}}
     </script>
 
+    <script type="text/html" id="addArticle">
+        <form class="layui-form p-3" id="addArticleForm" lay-filter="addArticleForm">
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章标题</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" class="layui-input" placeholder="请输入文章标题"
+                        lay-verify="required" />
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章类别</label>
+                <div class="layui-input-block">
+                    <select name="cate_id" lay-verify="required"></select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章内容</label>
+                <div class="layui-input-block" style="height:400px;">
+                    <textarea name="content" id="article-content" class="layui-textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章封面</label>
+                <div class="layui-input-block cover-group">
+                    <div class="cover-img">
+                        <img src="/assets/images/cover.jpeg" id="image" />
+                    </div>
+                    <div class="cover-btn">
+                        <input type="file" id="file" class="d-none" accept="image/*" />
+                        <button type="button"
+                            class="layui-btn layui-btn-primary btn-choose-img">选择图片</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </script>
+
+
     <script src="/assets/lib/jquery-3.6.0.min.js"></script>
     <script src="/assets/lib/layui/layui.all.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/lib/template-web.js"></script>
+    <script src="/assets/lib/tinymce/tinymce.min.js"></script>
     <script src="/assets/js/article/article-list.js"></script>
 </body>
 

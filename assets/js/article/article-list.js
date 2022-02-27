@@ -116,13 +116,86 @@ $(function () {
         });
     });
 
-    // 点击编辑按钮，跳转到编辑页面
-    // $('.layui-table tbody').on('click', '.edit-article', function () {
-    //     var id = $(this).siblings('.del-article').attr('data-id');
-    //     if (id !== null) {
-    //         window.parent.location.href = '/article/article-list.html?id=' + id;
-    //     };
-    // });
+    // 发布文章
+    var addArt = null;
+    $('.add-article').on('click', function () {
+        // 定义文章发布状态
+        var articleState = '已发布';
+        addArt = layui.layer.open({
+            type: 1,
+            title: '发布文章',
+            area: ['960px', '640px'],
+            content: $('#addArticle').html(),
+            btn: ['发布文章', '草稿'],
+            yes: function () {
+                if (!file) return layui.layer.msg('请选择文章封面！');
+
+                // 基于form表单创建FormData对象
+                var fd = new FormData($('#addArticleForm')[0]);
+
+                // 追加state到fd中
+                fd.append('state', articleState);
+
+                fd.append('cover_img', file);
+
+                // 发起ajax请求将数据传入服务端
+                publishArticle(fd);
+            },
+            btn2: function () {
+                articleState = '草稿';
+            }
+        });
+
+        // 初始化富文本编辑器
+        tinymce.init({
+            selector: '#article-content',
+            language: 'zh_CN',
+            min_height: 400,
+            menubar: false, //菜单栏
+            branding: false, //右下角技术支持
+        });
+        // 初始化分类
+        initCategory();
+
+        // 选择封面
+        $('.btn-choose-img').on('click', function () {
+            $('#file').click();
+        });
+        // 用户选择了封面
+        var file = null
+        $('#file').on('change', function (e) {
+            const files = e.target.files;
+            if (files.length === 0) {
+                return file = null;
+            }
+
+            const imgURL = URL.createObjectURL(files[0]);
+            $('#image').attr('src', imgURL);
+            file = files[0];
+        });
+    });
+
+    // 定义发布文章函数
+    function publishArticle(fd) {
+        $.ajax({
+            method: 'POST',
+            url: '/my/article/add',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                if (res.status !== 0) {
+                    return layui.layer.msg(res.message);
+                };
+                layui.layer.msg(res.message);
+                setTimeout(function () {
+                    location.href = '/article/article-list.html';
+                }, 1000);
+            }
+        });
+    }
+
+
 
 
 });
